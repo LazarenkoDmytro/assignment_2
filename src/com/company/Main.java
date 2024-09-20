@@ -41,11 +41,34 @@ public class Main {
         System.out.println(result == 0 ? "Lucky Ticket" : "Not Lucky Ticket");
     }
 
+    public static void isPalindrome(Scanner scanner) {
+        System.out.print("Enter the 6-digit number: ");
+        int number = scanner.nextInt();
+
+        int[] digits = new int[3];
+        for (int i = 0; i < 3; i++) {
+            digits[i] = number % 10;
+            number = number / 10;
+        }
+
+        for (int i = 2; i >= 0; i--) {
+            if (digits[i] != number % 10) {
+                System.out.println("Not a palindrome.");
+                return;
+            }
+
+            number = number / 10;
+        }
+
+        System.out.println("Is a palindrome.");
+    }
+
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             isInsideCircle(scanner);
             isInsideTriangle(scanner);
             isLuckyTicket(scanner);
+            isPalindrome(scanner);
         }
     }
 }
