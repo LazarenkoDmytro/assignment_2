@@ -23,10 +23,29 @@ public class Main {
         }
     }
 
+    private static void isLuckyTicket(Scanner scanner) {
+        System.out.print("Enter the 4-digit number: ");
+        int number = scanner.nextInt();
+        int result = 0;
+
+        for (int i = 0; i < 2; i++) {
+            result = result + number % 10;
+            number = number / 10;
+        }
+
+        for (int i = 0; i < 2; i++) {
+            result = result - number % 10;
+            number = number / 10;
+        }
+
+        System.out.println(result == 0 ? "Lucky Ticket" : "Not Lucky Ticket");
+    }
+
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             isInsideCircle(scanner);
             isInsideTriangle(scanner);
+            isLuckyTicket(scanner);
         }
     }
 }
