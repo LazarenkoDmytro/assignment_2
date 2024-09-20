@@ -96,6 +96,21 @@ public class Main {
         }
     }
 
+    private static void drawHourglass(Scanner scanner) {
+        System.out.print("Enter the width of the hourglass: ");
+        int width = scanner.nextInt();
+
+        String space = " ";
+        String star = "*";
+        int middle = (width + 1) / 2;
+        for (int i = 1; i <= width; i++) {
+            int spacesNumber = middle - Math.abs(middle - i) - 1;
+            int starsNumber = width - 2 * spacesNumber;
+
+            System.out.println(space.repeat(spacesNumber) + star.repeat(starsNumber) + space.repeat(spacesNumber));
+        }
+    }
+
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             isInsideCircle(scanner);
@@ -104,6 +119,7 @@ public class Main {
             isPalindrome(scanner);
             drawFigure(scanner);
             findPrimeNumbers();
+            drawHourglass(scanner);
         }
     }
 }
