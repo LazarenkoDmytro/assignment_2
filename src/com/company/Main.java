@@ -63,12 +63,23 @@ public class Main {
         System.out.println("Is a palindrome.");
     }
 
+    private static void drawFigure(Scanner scanner) {
+        System.out.print("Enter the height of the figure: ");
+        int height = scanner.nextInt();
+        String star = "*";
+
+        for (int i = 1; i <= 2 * height - 1; i++) {
+            System.out.println(star.repeat(height - Math.abs(height - i)));
+        }
+    }
+
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             isInsideCircle(scanner);
             isInsideTriangle(scanner);
             isLuckyTicket(scanner);
             isPalindrome(scanner);
+            drawFigure(scanner);
         }
     }
 }
